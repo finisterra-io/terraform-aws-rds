@@ -107,7 +107,8 @@ variable "snapshot_identifier" {
 
 variable "final_snapshot_identifier" {
   description = "final_snapshot_identifier"
-  type        = string                                                                                                                                                 default     = null
+  type        = string
+  default     = null
 }
 
 variable "copy_tags_to_snapshot" {
