@@ -105,6 +105,11 @@ variable "snapshot_identifier" {
   default     = null
 }
 
+variable "final_snapshot_identifier" {
+  description = "final_snapshot_identifier"
+  type        = string                                                                                                                                                 default     = null
+}
+
 variable "copy_tags_to_snapshot" {
   description = "On delete, copy all Instance tags to the final snapshot"
   type        = bool

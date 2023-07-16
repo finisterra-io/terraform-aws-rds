@@ -103,6 +103,7 @@ module "db_instance" {
   blue_green_update           = var.blue_green_update
 
   snapshot_identifier              = var.snapshot_identifier
+  final_snapshot_identifier        = var.final_snapshot_identifier
   copy_tags_to_snapshot            = var.copy_tags_to_snapshot
   skip_final_snapshot              = var.skip_final_snapshot
   final_snapshot_identifier_prefix = var.final_snapshot_identifier_prefix
