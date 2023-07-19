@@ -38,6 +38,8 @@ resource "aws_db_instance" "this" {
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
   custom_iam_instance_profile         = var.custom_iam_instance_profile
   manage_master_user_password         = !local.is_replica && var.manage_master_user_password ? var.manage_master_user_password : null
+#  master_user_secret                  = var.master_user_secret
+  replicas                            = null
   master_user_secret_kms_key_id       = !local.is_replica && var.manage_master_user_password ? var.master_user_secret_kms_key_id : null
 
   vpc_security_group_ids = var.vpc_security_group_ids
@@ -129,11 +131,6 @@ resource "aws_db_instance" "this" {
   # Note: do not add `latest_restorable_time` to `ignore_changes`
   # https://github.com/terraform-aws-modules/terraform-aws-rds/issues/478
 
-  lifecycle {
-    ignore_changes = [
-      master_user_secret
-    ]
-  }
 }
 
 ################################################################################
