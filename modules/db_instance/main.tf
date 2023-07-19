@@ -53,9 +53,9 @@ resource "aws_db_instance" "this" {
   publicly_accessible = var.publicly_accessible
   ca_cert_identifier  = var.ca_cert_identifier
 
-  allow_major_version_upgrade = var.allow_major_version_upgrade
+  #allow_major_version_upgrade = var.allow_major_version_upgrade
   auto_minor_version_upgrade  = var.auto_minor_version_upgrade
-  apply_immediately           = var.apply_immediately
+  #apply_immediately           = var.apply_immediately
   maintenance_window          = var.maintenance_window
 
   # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
@@ -69,7 +69,7 @@ resource "aws_db_instance" "this" {
 
   snapshot_identifier       = var.snapshot_identifier
   copy_tags_to_snapshot     = var.copy_tags_to_snapshot
-  skip_final_snapshot       = var.skip_final_snapshot
+  #skip_final_snapshot       = var.skip_final_snapshot
   final_snapshot_identifier = var.final_snapshot_identifier
 
   performance_insights_enabled          = var.performance_insights_enabled
@@ -90,7 +90,7 @@ resource "aws_db_instance" "this" {
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
   deletion_protection      = var.deletion_protection
-  delete_automated_backups = var.delete_automated_backups
+  #delete_automated_backups = var.delete_automated_backups
 
   dynamic "restore_to_point_in_time" {
     for_each = var.restore_to_point_in_time != null ? [var.restore_to_point_in_time] : []
@@ -120,11 +120,11 @@ resource "aws_db_instance" "this" {
 
   depends_on = [aws_cloudwatch_log_group.this]
 
-  timeouts {
-    create = lookup(var.timeouts, "create", null)
-    delete = lookup(var.timeouts, "delete", null)
-    update = lookup(var.timeouts, "update", null)
-  }
+  #timeouts {
+  #  create = lookup(var.timeouts, "create", null)
+  #  delete = lookup(var.timeouts, "delete", null)
+  #  update = lookup(var.timeouts, "update", null)
+  #}
 
   # Note: do not add `latest_restorable_time` to `ignore_changes`
   # https://github.com/terraform-aws-modules/terraform-aws-rds/issues/478
