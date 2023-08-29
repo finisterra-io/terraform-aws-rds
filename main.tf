@@ -20,7 +20,7 @@ module "db_subnet_group" {
   description     = var.db_subnet_group_description
   subnet_ids      = var.subnet_ids
 
-  tags = merge(var.tags, var.db_subnet_group_tags)
+  tags = var.db_subnet_group_tags
 }
 
 module "db_parameter_group" {
@@ -35,7 +35,7 @@ module "db_parameter_group" {
 
   parameters = var.parameters
 
-  tags = merge(var.tags, var.db_parameter_group_tags)
+  tags = var.db_parameter_group_tags
 }
 
 module "db_option_group" {
@@ -53,7 +53,7 @@ module "db_option_group" {
 
   timeouts = var.option_group_timeouts
 
-  tags = merge(var.tags, var.db_option_group_tags)
+  tags = var.db_option_group_tags
 }
 
 module "db_instance" {
