@@ -1,5 +1,4 @@
 locals {
-  monitoring_role_arn = var.create_monitoring_role ? aws_iam_role.enhanced_monitoring[0].arn : var.monitoring_role_arn
 
   identifier        = var.use_identifier_prefix ? null : var.identifier
   identifier_prefix = var.use_identifier_prefix ? "${var.identifier}-" : null
@@ -82,7 +81,7 @@ resource "aws_db_instance" "this" {
   backup_window           = var.backup_window
   max_allocated_storage   = var.max_allocated_storage
   monitoring_interval     = var.monitoring_interval
-  monitoring_role_arn     = var.monitoring_interval > 0 ? local.monitoring_role_arn : null
+  monitoring_role_arn     = var.monitoring_interval > 0 ? var.monitoring_role_arn : null
 
   character_set_name              = var.character_set_name
   nchar_character_set_name        = var.nchar_character_set_name
