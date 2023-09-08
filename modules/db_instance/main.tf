@@ -54,9 +54,9 @@ resource "aws_db_instance" "this" {
   ca_cert_identifier  = var.ca_cert_identifier
 
   #allow_major_version_upgrade = var.allow_major_version_upgrade
-  auto_minor_version_upgrade  = var.auto_minor_version_upgrade
-  apply_immediately           = var.apply_immediately
-  maintenance_window          = var.maintenance_window
+  auto_minor_version_upgrade = var.auto_minor_version_upgrade
+  apply_immediately          = var.apply_immediately
+  maintenance_window         = var.maintenance_window
 
   # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
   dynamic "blue_green_update" {
@@ -173,9 +173,6 @@ resource "aws_iam_role" "enhanced_monitoring" {
   permissions_boundary = var.monitoring_role_permissions_boundary
 
   tags = merge(
-    {
-      "Name" = format("%s", var.monitoring_role_name)
-    },
     var.tags,
   )
 }
