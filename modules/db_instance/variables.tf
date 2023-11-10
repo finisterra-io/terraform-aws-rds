@@ -423,3 +423,9 @@ variable "cloudwatch_log_group_kms_key_id" {
   type        = string
   default     = null
 }
+
+variable "cloudwatch_log_group_tags" {
+  description = "A mapping of tags to assign to the CloudWatch log group"
+  type        = map(string)
+  default     = {}
+}
