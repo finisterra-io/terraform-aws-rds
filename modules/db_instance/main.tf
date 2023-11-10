@@ -171,9 +171,7 @@ resource "aws_iam_role" "enhanced_monitoring" {
   description          = var.monitoring_role_description
   permissions_boundary = var.monitoring_role_permissions_boundary
 
-  tags = merge(
-    var.tags,
-  )
+  tags = var.monitoring_role_tags
 }
 
 resource "aws_iam_role_policy_attachment" "enhanced_monitoring" {

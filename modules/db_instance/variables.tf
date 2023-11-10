@@ -429,3 +429,9 @@ variable "cloudwatch_log_group_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "monitoring_role_tags" {
+  description = "A mapping of tags to assign to the monitoring IAM role"
+  type        = map(string)
+  default     = {}
+}
