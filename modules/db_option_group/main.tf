@@ -8,9 +8,9 @@ locals {
 resource "aws_db_option_group" "this" {
   count = var.create ? 1 : 0
 
-  name                     = local.name
-  name_prefix              = local.name_prefix
-  option_group_description = local.description
+  name = var.name
+  # name_prefix              = local.name_prefix
+  option_group_description = var.option_group_description
   engine_name              = var.engine_name
   major_engine_version     = var.major_engine_version
 
@@ -33,12 +33,7 @@ resource "aws_db_option_group" "this" {
     }
   }
 
-  tags = merge(
-    var.tags,
-    {
-      "Name" = var.name
-    },
-  )
+  tags = var.tags
 
   timeouts {
     delete = lookup(var.timeouts, "delete", null)
