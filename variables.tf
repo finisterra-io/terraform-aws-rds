@@ -545,3 +545,8 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
+variable "db_option_group_tags" {
+  description = "Additional tags for the DB option group"
+  type        = map(string)
+  default     = {}
+}
