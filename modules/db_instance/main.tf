@@ -19,25 +19,25 @@ resource "aws_db_instance" "this" {
   identifier = var.identifier
   # identifier_prefix = var.identifier_prefix
 
-  engine            = local.is_replica ? null : var.engine
+  engine            = var.engine
   engine_version    = var.engine_version
   instance_class    = var.instance_class
-  allocated_storage = local.is_replica ? null : var.allocated_storage
+  allocated_storage = var.allocated_storage
   storage_type      = var.storage_type
   storage_encrypted = var.storage_encrypted
   kms_key_id        = var.kms_key_id
   license_model     = var.license_model
 
   db_name                             = var.db_name
-  username                            = !local.is_replica ? var.username : null
-  password                            = !local.is_replica && var.manage_master_user_password ? null : var.password
+  username                            = var.username
+  password                            = var.manage_master_user_password ? null : var.password
   port                                = var.port
   domain                              = var.domain
   domain_iam_role_name                = var.domain_iam_role_name
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
   custom_iam_instance_profile         = var.custom_iam_instance_profile
-  manage_master_user_password         = !local.is_replica && var.manage_master_user_password ? var.manage_master_user_password : null
-  master_user_secret_kms_key_id       = !local.is_replica && var.manage_master_user_password ? var.master_user_secret_kms_key_id : null
+  manage_master_user_password         = var.manage_master_user_password ? var.manage_master_user_password : null
+  master_user_secret_kms_key_id       = var.manage_master_user_password ? var.master_user_secret_kms_key_id : null
 
   vpc_security_group_ids = var.vpc_security_group_ids
   db_subnet_group_name   = var.db_subnet_group_name
