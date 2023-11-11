@@ -310,7 +310,7 @@ variable "db_instance_tags" {
   default     = {}
 }
 
-variable "db_option_group_tags" {
+variable "option_group_tags" {
   description = "Additional tags for the DB option group"
   type        = map(string)
   default     = {}
@@ -543,10 +543,4 @@ variable "cloudwatch_log_group_kms_key_id" {
   description = "The ARN of the KMS Key to use when encrypting log data"
   type        = string
   default     = null
-}
-
-variable "db_option_group_tags" {
-  description = "Additional tags for the DB option group"
-  type        = map(string)
-  default     = {}
 }
