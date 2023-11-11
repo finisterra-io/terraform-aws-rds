@@ -7,7 +7,7 @@ locals {
   parameter_group_name_id = var.create_db_parameter_group ? module.db_parameter_group.db_parameter_group_id : var.parameter_group_name
 
   create_db_option_group = var.create_db_option_group && var.engine != "postgres"
-  option_group           = local.create_db_option_group ? module.db_option_group.db_option_group_id : var.option_group_name
+  option_group           = var.create_db_option_group ? module.db_option_group.db_option_group_id : var.option_group_name
 }
 
 module "db_subnet_group" {
@@ -41,7 +41,7 @@ module "db_parameter_group" {
 module "db_option_group" {
   source = "./modules/db_option_group"
 
-  create = local.create_db_option_group
+  create = var.create_db_option_group
 
   name                     = coalesce(var.option_group_name, var.identifier)
   use_name_prefix          = var.option_group_use_name_prefix
