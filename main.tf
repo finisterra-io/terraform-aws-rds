@@ -62,7 +62,7 @@ module "db_instance" {
   create     = local.create_db_instance
   identifier = var.identifier
   # use_identifier_prefix = var.instance_use_identifier_prefix
-  identifier_prefix = var.instance_identifier_prefix
+  # identifier_prefix = var.instance_identifier_prefix
 
   engine            = var.engine
   engine_version    = var.engine_version

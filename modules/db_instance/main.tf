@@ -16,8 +16,8 @@ data "aws_partition" "current" {}
 resource "aws_db_instance" "this" {
   count = var.create ? 1 : 0
 
-  identifier        = local.identifier
-  identifier_prefix = var.identifier_prefix
+  identifier = var.identifier
+  # identifier_prefix = var.identifier_prefix
 
   engine            = local.is_replica ? null : var.engine
   engine_version    = var.engine_version
