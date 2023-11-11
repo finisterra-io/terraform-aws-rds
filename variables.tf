@@ -544,3 +544,9 @@ variable "cloudwatch_log_group_kms_key_id" {
   type        = string
   default     = null
 }
+
+variable "instance_identifier_prefix" {
+  description = "The name which is prefixed to the RDS instance"
+  type        = string
+  default     = null
+}

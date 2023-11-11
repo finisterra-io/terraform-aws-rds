@@ -435,3 +435,9 @@ variable "monitoring_role_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "identifier_prefix" {
+  description = "The prefix to use for the identifier. If not specified, will use var.identifier"
+  type        = string
+  default     = null
+}
