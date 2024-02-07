@@ -1,12 +1,6 @@
 locals {
-
-  identifier        = var.use_identifier_prefix ? null : var.identifier
-  identifier_prefix = var.use_identifier_prefix ? "${var.identifier}-" : null
-
   monitoring_role_name        = var.monitoring_role_use_name_prefix ? null : var.monitoring_role_name
   monitoring_role_name_prefix = var.monitoring_role_use_name_prefix ? "${var.monitoring_role_name}-" : null
-
-  is_replica = var.replicate_source_db != null
 }
 
 # Ref. https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
