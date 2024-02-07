@@ -117,12 +117,6 @@ variable "copy_tags_to_snapshot" {
   default     = false
 }
 
-variable "final_snapshot_identifier_prefix" {
-  description = "The name which is prefixed to the final snapshot on cluster destroy"
-  type        = string
-  default     = "final"
-}
-
 variable "instance_class" {
   description = "The instance type of the RDS instance"
   type        = string
@@ -244,12 +238,6 @@ variable "monitoring_role_permissions_boundary" {
   default     = null
 }
 
-variable "allow_major_version_upgrade" {
-  description = "Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible"
-  type        = bool
-  default     = false
-}
-
 variable "auto_minor_version_upgrade" {
   description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
   type        = bool
@@ -358,12 +346,6 @@ variable "enabled_cloudwatch_logs_exports" {
   default     = []
 }
 
-variable "timeouts" {
-  description = "Updated Terraform resource management timeouts. Applies to `aws_db_instance` in particular to permit resource management times"
-  type        = map(string)
-  default     = {}
-}
-
 variable "deletion_protection" {
   description = "The database can't be deleted when this value is set to true"
   type        = bool
@@ -415,24 +397,6 @@ variable "network_type" {
 ################################################################################
 # CloudWatch Log Group
 ################################################################################
-
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a CloudWatch log group is created for each `enabled_cloudwatch_logs_exports`"
-  type        = bool
-  default     = false
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "The number of days to retain CloudWatch logs for the DB instance"
-  type        = number
-  default     = 7
-}
-
-variable "cloudwatch_log_group_kms_key_id" {
-  description = "The ARN of the KMS Key to use when encrypting log data"
-  type        = string
-  default     = null
-}
 
 variable "vpc_name" {
   description = "The name of the VPC"
