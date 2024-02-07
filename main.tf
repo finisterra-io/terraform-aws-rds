@@ -37,17 +37,15 @@ module "db_instance" {
   publicly_accessible = var.publicly_accessible
   ca_cert_identifier  = var.ca_cert_identifier
 
-  allow_major_version_upgrade = var.allow_major_version_upgrade
-  auto_minor_version_upgrade  = var.auto_minor_version_upgrade
-  apply_immediately           = var.apply_immediately
-  maintenance_window          = var.maintenance_window
-  blue_green_update           = var.blue_green_update
+  auto_minor_version_upgrade = var.auto_minor_version_upgrade
+  apply_immediately          = var.apply_immediately
+  maintenance_window         = var.maintenance_window
+  blue_green_update          = var.blue_green_update
 
-  snapshot_identifier              = var.snapshot_identifier
-  final_snapshot_identifier        = var.final_snapshot_identifier
-  copy_tags_to_snapshot            = var.copy_tags_to_snapshot
-  skip_final_snapshot              = var.skip_final_snapshot
-  final_snapshot_identifier_prefix = var.final_snapshot_identifier_prefix
+  snapshot_identifier       = var.snapshot_identifier
+  final_snapshot_identifier = var.final_snapshot_identifier
+  copy_tags_to_snapshot     = var.copy_tags_to_snapshot
+  skip_final_snapshot       = var.skip_final_snapshot
 
   performance_insights_enabled          = var.performance_insights_enabled
   performance_insights_retention_period = var.performance_insights_retention_period
@@ -70,12 +68,7 @@ module "db_instance" {
   nchar_character_set_name = var.nchar_character_set_name
   timezone                 = var.timezone
 
-  enabled_cloudwatch_logs_exports        = var.enabled_cloudwatch_logs_exports
-  create_cloudwatch_log_group            = var.create_cloudwatch_log_group
-  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
-  cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
-
-  timeouts = var.timeouts
+  enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
   deletion_protection      = var.deletion_protection
   delete_automated_backups = var.delete_automated_backups
