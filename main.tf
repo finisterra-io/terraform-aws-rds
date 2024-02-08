@@ -17,7 +17,7 @@ resource "aws_db_instance" "this" {
   allocated_storage = var.allocated_storage
   storage_type      = var.storage_type
   storage_encrypted = var.storage_encrypted
-  kms_key_id        = var.kms_key_id
+  kms_key_id        = var.kms_key_alias != null ? data.aws_kms_key.kms[0].arn : var.kms_key_id
   license_model     = var.license_model
 
   db_name                             = var.db_name
@@ -31,7 +31,7 @@ resource "aws_db_instance" "this" {
   manage_master_user_password         = var.manage_master_user_password ? var.manage_master_user_password : null
   master_user_secret_kms_key_id       = var.manage_master_user_password ? var.master_user_secret_kms_key_id : null
 
-  vpc_security_group_ids = var.vpc_security_group_ids
+  vpc_security_group_ids = [for sg_id in var.vpc_security_group_ids : sg_id == "default" ? data.aws_security_group.default[0].id : sg_id]
   db_subnet_group_name   = var.db_subnet_group_name
   parameter_group_name   = var.parameter_group_name
   option_group_name      = var.option_group_name
@@ -63,7 +63,7 @@ resource "aws_db_instance" "this" {
 
   performance_insights_enabled          = var.performance_insights_enabled
   performance_insights_retention_period = var.performance_insights_enabled ? var.performance_insights_retention_period : null
-  performance_insights_kms_key_id       = var.performance_insights_enabled ? var.performance_insights_kms_key_id : null
+  performance_insights_kms_key_id       = var.performance_insights_kms_key_alias != null ? data.aws_kms_key.performance_insights[0].arn : var.performance_insights_kms_key_id
 
   replicate_source_db     = var.replicate_source_db
   replica_mode            = var.replica_mode
