@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.2](https://github.com/finisterra-io/terraform-aws-rds/compare/v1.0.1...v1.0.2) (2024-02-08)
+
+
+### Bug Fixes
+
+* move module ([0854c46](https://github.com/finisterra-io/terraform-aws-rds/commit/0854c46b2e9cfeb7284c4296c251bf6eaa62c8bd))
+
 ### [1.0.1](https://github.com/finisterra-io/terraform-aws-rds/compare/v1.0.0...v1.0.1) (2024-02-08)
 
 
