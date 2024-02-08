@@ -76,5 +76,5 @@ module "db_instance" {
   restore_to_point_in_time = var.restore_to_point_in_time
   s3_import                = var.s3_import
 
-  tags = merge(var.tags, var.db_instance_tags)
+  tags = var.tags
 }
