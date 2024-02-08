@@ -383,3 +383,28 @@ variable "monitoring_role_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "vpc_name" {
+  description = "The name of the VPC"
+  type        = string
+  default     = null
+}
+
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  type        = string
+  default     = null
+}
+
+
+variable "kms_key_alias" {
+  description = "The KMS encryption key alias in the destination AWS Region"
+  type        = string
+  default     = null
+}
+
+variable "performance_insights_kms_key_alias" {
+  description = "The KMS encryption key alias in the destination AWS Region"
+  type        = string
+  default     = null
+}
