@@ -107,6 +107,10 @@ resource "aws_db_instance" "this" {
 
   tags = var.tags
 
+  lifecycle {
+    ignore_changes = [apply_immediately, skip_final_snapshot]
+  }
+
 }
 
 ################################################################################
