@@ -13,7 +13,7 @@ output "db_instance_address" {
   value       = try(aws_db_instance.this[0].address, null)
 }
 
-output "db_instance_arn" {
+output "arn" {
   description = "The ARN of the RDS instance"
   value       = try(aws_db_instance.this[0].arn, null)
 }
