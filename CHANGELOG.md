@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.5](https://github.com/finisterra-io/terraform-aws-rds/compare/v1.0.4...v1.0.5) (2024-02-21)
+
+
+### Bug Fixes
+
+* outputs ([dacf158](https://github.com/finisterra-io/terraform-aws-rds/commit/dacf158c56aafd35c5d5842cc6020a7eca4e89ea))
+
 ### [1.0.4](https://github.com/finisterra-io/terraform-aws-rds/compare/v1.0.3...v1.0.4) (2024-02-16)
 
 
