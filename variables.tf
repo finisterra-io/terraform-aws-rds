@@ -320,13 +320,13 @@ variable "enabled_cloudwatch_logs_exports" {
 variable "deletion_protection" {
   description = "The database can't be deleted when this value is set to true."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "performance_insights_enabled" {
   description = "Specifies whether Performance Insights are enabled"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "performance_insights_retention_period" {
