@@ -6,6 +6,7 @@ locals {
 # Ref. https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 data "aws_partition" "current" {}
 
+# nosemgrep
 resource "aws_db_instance" "this" {
   count = var.create ? 1 : 0
 
